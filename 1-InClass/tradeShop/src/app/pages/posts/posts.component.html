@@ -1,0 +1,17 @@
+<mat-grid-list cols="3" gutterSize="3em" >
+    <small>Number of Posts: {{ posts.length }} </small>
+    <mat-grid-tile
+        *ngFor="let post of posts">
+            <mat-card class="card" (click)='viewPost(post)'>
+                <img mat-card-image [src]="post.imageUrl" [alt]="post.title">
+                <mat-card-content>
+                  <small>{{ post.category }}</small>
+                  <p>
+                    {{ post.title }} 
+                  </p>
+                  <strong>{{ post.price | currency }}</strong>
+                </mat-card-content>
+              </mat-card>
+      <hr />
+    </mat-grid-tile>
+  </mat-grid-list>

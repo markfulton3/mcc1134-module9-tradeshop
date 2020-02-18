@@ -1,0 +1,66 @@
+<div class="edit-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Edit Post</li>
+      </ol>
+    </nav>
+    <div class="page-content">
+      <div class="row">
+        <div class="col-12 col-md-12">
+  
+          <form class="edit-form" [formGroup]="editForm" novalidate (ngSubmit)="onSubmit(editForm.value)">
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Title" class="form-control" formControlName="title">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.title">
+                <mat-error *ngIf="editForm.get('title').hasError(validation.type) && (editForm.get('title').dirty || editForm.get('title').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Category" class="form-control" formControlName="category">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.surname">
+                <mat-error *ngIf="editForm.get('category').hasError(validation.type) && (editForm.get('category').dirty || editForm.get('category').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Image Url" class="form-control" formControlName="imageUrl">
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Location" class="form-control" formControlName="location">
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Price" class="form-control" formControlName="price">
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="User" class="form-control" formControlName="user">
+                </mat-form-field>
+              </div>
+  
+            <div class="row submit-button-container">
+              <div class="col-md-12">
+                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!editForm.valid">Save</button>
+                <button mat-raised-button class="delete-button" color="warn" type="button" (click)="delete()">Delete</button>
+                <button mat-raised-button class="delete-button" color="info" type="button" (click)="cancel()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

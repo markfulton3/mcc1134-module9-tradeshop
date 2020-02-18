@@ -1,0 +1,63 @@
+<div class="create-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Create Post</li>
+      </ol>
+    </nav>
+    <div class="page-content">
+      <div class="row">
+  
+        <div class="col-12 col-md-8">
+  
+          <form class="create-form" [formGroup]="createForm" novalidate (ngSubmit)="onSubmit(createForm.value)">
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Title" class="form-control" formControlName="title">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.title">
+                <mat-error *ngIf="createForm.get('title').hasError(validation.type) && (createForm.get('title').dirty || createForm.get('title').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Category" class="form-control" formControlName="category">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.category">
+                <mat-error *ngIf="createForm.get('category').hasError(validation.type) && (createForm.get('category').dirty || createForm.get('category').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput placeholder="Description" class="form-control" formControlName="description">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.description">
+                <mat-error *ngIf="createForm.get('description').hasError(validation.type) && (createForm.get('description').dirty || createForm.get('description').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="Image Url" class="form-control" formControlName="imageUrl">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="Location" class="form-control" formControlName="location">
+                </mat-form-field>
+            </div>
+  
+            <div class="row submit-button-container">
+              <div class="col-md-4">
+                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!createForm.valid">Create</button>
+              </div>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

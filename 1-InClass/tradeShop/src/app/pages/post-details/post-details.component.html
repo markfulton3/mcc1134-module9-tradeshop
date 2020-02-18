@@ -1,0 +1,19 @@
+<div *ngIf="post">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ post.title }}</mat-card-title>
+            <mat-card-subtitle>{{ post.category }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="post.imageUrl" [alt]="post.title">
+          <mat-card-content>
+            <p>
+              {{ post.description }}
+            </p>
+            <strong>{{ post.price | currency }}</strong>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)='editPost()'>EDIT</button>
+          </mat-card-actions>
+        </mat-card>
+  </div>

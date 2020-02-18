@@ -1,0 +1,9 @@
+<firebase-ui></firebase-ui>
+
+
+<div class="profile" *ngIf="user">
+    <h1>Profile</h1>
+    <div class="email"> {{ user.email }}</div>
+    <div class=""> </div>
+    <button mat-raised-button class="submit-button" color="primary" type="submit" (click)='logout()'>Logout</button>
+</div>
